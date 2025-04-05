@@ -10,7 +10,7 @@ import {
     doc,
     getDoc
 } from 'firebase/firestore';
-import { auth, db } from '../firebase'; // Проверь путь
+import { auth, db } from '../firebase';
 import {
     BellIcon,
     UserGroupIcon,

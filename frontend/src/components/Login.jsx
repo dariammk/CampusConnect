@@ -96,7 +96,7 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-8 overflow-hidden gap-8 relative">
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-8 overflow-hidden gap-8">
             {/* Background Icons */}
             <div className="absolute inset-0 pointer-events-none">
                 {backgroundIcons.map((icon, index) => (
@@ -116,13 +116,32 @@ const Login = () => {
                 ))}
             </div>
 
+            {/* Video Section */}
+            <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="hidden md:block flex-1 max-w-xl w-full"
+            >
+                <div className="relative w-full rounded-2xl shadow-xl overflow-hidden"
+                    style={{ paddingTop: '56.25%' }}> {/* 16:9 Aspect Ratio */}
+                    <iframe
+                        className="absolute top-0 left-0 w-full h-full"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ"
+                        title="Demo video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+            </motion.div>
+
             {/* Login Form Section */}
             <motion.div
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 100 }}
                 transition={{ type: 'spring', stiffness: 120 }}
-                className="flex-1 max-w-md z-10 relative"
+                className="flex-1 max-w-md z-10"
             >
                 <motion.form
                     onSubmit={handleLogin}
@@ -176,7 +195,24 @@ const Login = () => {
                         <span>Войти через Google</span>
                     </motion.button>
 
-                    {/* Form Fields */}
+                    <motion.div
+                        className="relative"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                    >
+                        <div className="absolute inset-0 flex items-center">
+                            <motion.div
+                                className="w-full border-t border-gray-300"
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
+                            />
+                        </div>
+                        <div className="relative flex justify-center text-sm">
+                            <span className="px-2 bg-white text-gray-500">или</span>
+                        </div>
+                    </motion.div>
+
                     <motion.div
                         className="space-y-4"
                         initial={{ opacity: 0 }}

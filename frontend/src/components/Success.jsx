@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircleIcon } from '@heroicons/react/24/solid';
@@ -80,13 +80,6 @@ const Success = () => {
             }
         }
     };
-
-    // Использование useEffect для инициализации анимаций на клиенте
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            // Эта проверка помогает избежать ошибок на сервере при использовании фреймворков, таких как Next.js или других серверных рендереров
-        }
-    }, []);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center p-8 overflow-hidden">
